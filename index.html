@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Aiden's Fund Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <section class="left-panel">
+            <div class="goal-header">
+                <h2>Goal: <span id="goal-eur">&euro;2,000</span> / <span id="goal-cad">$0 CAD</span></h2>
+            </div>
+            
+            <div class="tracker-wrapper">
+                <div class="static-labels" id="static-labels">
+                    </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                
+                <div class="current-amount-track">
+                    <div class="current-amount-indicator" id="current-indicator">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="right-panel">
+            <header class="tracker-header">
+                <h1>Master Aiden's Fund Tracker</h1>
+            </header>
+            
+            <div class="history-section">
+                <h3>Recent Contributions</h3>
+                <ul id="contribution-list">
+                    <li>Loading contributions...</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

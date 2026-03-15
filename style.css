@@ -1,0 +1,171 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 2rem;
+}
+
+.dashboard-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    min-height: 80vh;
+}
+
+/* --- Left Panel: Tracker --- */
+.left-panel {
+    flex: 1;
+    padding: 2rem;
+    border-right: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goal-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tracker-wrapper {
+    display: flex;
+    height: 400px;
+    align-items: stretch;
+    gap: 1rem;
+    position: relative;
+}
+
+/* Left side fraction labels */
+.static-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    min-width: 120px;
+}
+
+.static-labels .eur-step {
+    font-weight: bold;
+    color: #aaa;
+}
+
+.static-labels .cad-step {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* The vertical bar */
+.progress-bar-container {
+    width: 40px;
+    background-color: #333;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; 
+    background-color: #bb86fc; 
+    transition: height 0.5s ease-in-out;
+}
+
+.progress-fill::before,
+.progress-fill::after {
+    content: "";
+    position: absolute;
+    width: 60px; /* Slightly wider than the 40px bar */
+    height: 60px;
+    top: -15px; /* Positions the wave right at the top edge of the fill line */
+    left: 50%;
+    background-color: rgba(187, 134, 252, 0.5); /* Semi-transparent purple for the back wave */
+    border-radius: 40%; /* Makes it an imperfect squarish-circle */
+    animation: wave 3s infinite linear;
+}
+
+.progress-fill::after {
+    background-color: #bb86fc; /* Solid purple for the front wave */
+    border-radius: 45%; /* Slightly different shape */
+    animation: wave 4s infinite linear; /* Slightly slower speed for an organic ripple */
+}
+
+/* The spinning animation that creates the wave effect */
+@keyframes wave {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Right side dynamic floating tracker */
+.current-amount-track {
+    position: relative;
+    height: 100%;
+    min-width: 120px;
+}
+
+.current-amount-indicator {
+    position: absolute;
+    left: 0;
+    /* transform keeps it vertically centered on the exact fill line */
+    transform: translateY(50%); 
+    display: flex;
+    flex-direction: column;
+    transition: bottom 0.5s ease-in-out;
+}
+
+.current-amount-indicator .eur-current {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #bb86fc; 
+}
+
+.current-amount-indicator .cad-current {
+    font-size: 0.9rem;
+    color: #aaa; 
+}
+
+/* --- Right Panel: Title & History --- */
+.right-panel {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.tracker-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.history-section {
+    flex-grow: 1;
+    background: #252525;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+#contribution-list {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+#contribution-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #444;
+}
